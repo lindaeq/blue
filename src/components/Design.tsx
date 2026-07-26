@@ -1,3 +1,6 @@
+import GalleryGrid from "./GalleryGrid";
+import Reveal from "./Reveal";
+
 const designs = [
   { title: "Design One" },
   { title: "Design Two" },
@@ -9,27 +12,20 @@ export default function Design() {
   return (
     <section
       id="design"
-      className="flex max-w-xl flex-col gap-10 px-8 py-24 sm:px-14 lg:px-20"
+      className="flex min-h-screen w-full max-w-3xl flex-col justify-center px-4 py-20 sm:px-8 lg:px-12"
     >
-      <div>
-        <h2 className="font-display text-4xl font-bold sm:text-5xl">
-          design
-        </h2>
-        <p className="mt-1 font-sans text-sm italic text-white/90">
-          what i&apos;ve been designing...
-        </p>
-      </div>
+      <Reveal className="flex flex-col gap-10">
+        <div>
+          <h2 className="font-display text-5xl font-bold sm:text-6xl">
+            design
+          </h2>
+          <p className="mt-1 font-sans text-lg font-semibold italic text-pink-accent sm:text-xl">
+            what i&apos;ve been designing...
+          </p>
+        </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        {designs.map((design) => (
-          <div
-            key={design.title}
-            className="flex aspect-[4/3] w-full items-center justify-center rounded-lg bg-navy-muted transition-opacity hover:opacity-90"
-          >
-            <span className="sr-only">{design.title}</span>
-          </div>
-        ))}
-      </div>
+        <GalleryGrid items={designs} />
+      </Reveal>
     </section>
   );
 }

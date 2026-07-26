@@ -1,16 +1,34 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useProjectsTab, type ProjectsTab } from "./ProjectsTabContext";
+import { playClick } from "@/lib/sound";
 
-const links = [
+const links: { label: string; href: string; tab?: ProjectsTab }[] = [
   { label: "about me", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "design", href: "#design" },
+  { label: "projects", href: "#projects", tab: "software" },
+  { label: "design", href: "#projects", tab: "design" },
 ];
 
 export default function Nav() {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const [scrolled, setScrolled] = useState(false);
+  const { setTab } = useProjectsTab();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    tab?: ProjectsTab
+  ) => {
     e.preventDefault();
+    playClick();
+    if (tab) setTab(tab);
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -18,49 +36,25 @@ export default function Nav() {
   };
 
   return (
-    <div className="flex flex-col items-end gap-4">
-      <nav className="flex gap-3">
-        {links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => handleClick(e, link.href)}
-            className="rounded-md bg-navy px-4 py-2 text-sm font-bold text-navy-light transition-opacity hover:opacity-80"
-          >
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <div className="flex items-center gap-3">
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-navy transition-opacity hover:opacity-80"
-        >
-          <Github size={18} className="text-white" />
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-opacity hover:opacity-80"
-        >
-          <Linkedin size={18} className="text-white" fill="white" />
-        </a>
-      </div>
-
-      <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-sm font-bold italic text-navy underline decoration-navy underline-offset-2"
+    <div className="pointer-events-none fixed inset-x-0 top-[7.5rem] z-50 flex justify-center">
+      <div
+        className={`pointer-events-auto flex w-full max-w-4xl items-center justify-end px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
+          scrolled ? "rounded-2xl bg-navy/90 py-3 shadow-xl backdrop-blur-md" : "py-0"
+        }`}
       >
-        resume
-      </a>
+        <nav className="flex gap-3">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => handleClick(e, link.href, link.tab)}
+              className="rounded-md bg-navy px-4 py-2 text-sm font-semibold italic text-navy-light transition-all duration-200 hover:-translate-y-0.5 hover:opacity-80"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }
