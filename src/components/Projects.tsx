@@ -18,9 +18,15 @@ const projects: Project[] = [
     imageHeight: 671,
   },
   {
-    title: "project two",
-    tech: "tech stack tbd",
-    description: "details coming soon.",
+    title: "digdeep",
+    link: "https://github.com/SuhanaAkhter/DigDeep",
+    tech: "html - css - python - js - sqlite",
+    description:
+      "web app for volleyball coaches and players to track and analyze team and individual performance stats, with role-based dashboards, player and game management, and per-set stat tracking.",
+    image: "/project-digdeep.png",
+    imageAlt: "DigDeep sign up page and logo",
+    imageWidth: 1213,
+    imageHeight: 658,
   },
   {
     title: "project three",
@@ -95,7 +101,7 @@ export default function Projects() {
               {tab === "software" ? (
                 <>
                   what i&apos;ve been{" "}
-                  <span className="font-extrabold text-pink-accent brightness-90">
+                  <span className="font-extrabold text-[#FFD1E0]">
                     making
                   </span>
                   ...
@@ -103,7 +109,7 @@ export default function Projects() {
               ) : (
                 <>
                   what i&apos;ve been{" "}
-                  <span className="font-extrabold text-pink-accent brightness-90">
+                  <span className="font-extrabold text-[#FFD1E0]">
                     designing
                   </span>
                   ...
