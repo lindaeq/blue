@@ -79,17 +79,17 @@ export default function Hero() {
         <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center">
           <div className="flex-1 rounded-lg bg-navy px-6 py-5 font-sans text-sm font-medium italic leading-relaxed transition-transform duration-300 hover:-translate-y-0.5 sm:whitespace-nowrap sm:text-base">
             <p className="text-pink-accent/90">
-              1st year CS student at the University of Waterloo
+              first year cs student at the the university of waterloo
             </p>
             <p>
-              <span className="font-bold">Current obsession:</span>{" "}
+              <span className="font-bold">current obsession:</span>{" "}
               <a
                 href="https://open.spotify.com/album/3WZZF72ihlKPZBS4zSsNHl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-pink-accent underline decoration-pink-accent underline-offset-2"
               >
-                Olivia Rodrigo&apos;s new album
+                olivia rodrigo&apos;s new album
               </a>
             </p>
           </div>
