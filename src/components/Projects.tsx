@@ -69,8 +69,8 @@ const designs: Project[] = [
     image: "/design-8729-pins.png",
     imageAlt:
       "Pit crew, mentor, media, and scouter button pin badge designs for FRC team 8729 Sparkling H2O",
-    imageWidth: 435,
-    imageHeight: 407,
+    imageWidth: 431,
+    imageHeight: 120,
   },
   {
     title: "neapolitan web",
