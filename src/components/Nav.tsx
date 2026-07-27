@@ -36,7 +36,11 @@ export default function Nav() {
   };
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-[7.5rem] z-50 flex justify-center">
+    <div
+      className={`pointer-events-none fixed inset-x-0 z-50 flex justify-center transition-all duration-300 ${
+        scrolled ? "top-4" : "top-[7.5rem]"
+      }`}
+    >
       <div
         className={`pointer-events-auto flex w-full max-w-4xl items-center justify-end px-4 transition-all duration-300 sm:px-6 lg:px-8 ${
           scrolled ? "rounded-2xl bg-navy/90 py-3 shadow-xl backdrop-blur-md" : "py-0"

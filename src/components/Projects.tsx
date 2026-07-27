@@ -62,6 +62,27 @@ const designs: Project[] = [
     imageHeight: 835,
   },
   {
+    title: "frc 8729 sparkling h2o",
+    tech: "button pin designs",
+    description:
+      "pit crew, mentor, media, and scouter button pin designs for FIRST Robotics Competition team 8729 Sparkling H2O.",
+    image: "/design-8729-pins.png",
+    imageAlt:
+      "Pit crew, mentor, media, and scouter button pin badge designs for FRC team 8729 Sparkling H2O",
+    imageWidth: 435,
+    imageHeight: 407,
+  },
+  {
+    title: "neapolitan web",
+    tech: "web design concept",
+    description:
+      "an alternate pastel neapolitan concept for this portfolio site.",
+    image: "/design-neapolitan.png",
+    imageAlt: "Neapolitan-themed portfolio web design concept",
+    imageWidth: 469,
+    imageHeight: 703,
+  },
+  {
     title: "spark of luminosity",
     tech: "event poster - sponsor poster",
     description:
@@ -72,14 +93,9 @@ const designs: Project[] = [
     imageHeight: 662,
   },
   {
-    title: "neapolitan web",
-    tech: "web design concept",
-    description:
-      "an alternate pastel neapolitan concept for this portfolio site.",
-    image: "/design-neapolitan.png",
-    imageAlt: "Neapolitan-themed portfolio web design concept",
-    imageWidth: 712,
-    imageHeight: 765,
+    title: "design six",
+    tech: "tech stack tbd",
+    description: "details coming soon.",
   },
 ];
 
